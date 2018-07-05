@@ -41,6 +41,11 @@ public class MenuServiceImpl implements IMenuService {
     }
 
     @Override
+    public Goods getAllGoodsBydishID(int id) {
+        return goodsDao.getAllGoodsByID(id);
+    }
+
+    @Override
     public Goods getGoodsById(int id) {
         return goodsDao.getGoodsById(id);
     }

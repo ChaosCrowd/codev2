@@ -64,6 +64,8 @@
             and goods.active = 1
     </select>
 
+
+
     <select id="getGoodsNotInCateByID" resultMap="goodsMap">
         select
             goods.*
@@ -73,6 +75,15 @@
             goods.id = #{id} and
             goods.id not in (select goods_id from goods_category)
             and goods.active = 1
+    </select>
+
+    <select id="getAllGoodsByID" resultMap="goodsMap">
+        select
+            goods.*
+        from
+            goods
+        where
+            goods.id = #{id};
     </select>
 
     <select id="getGoodsListByCategory" resultMap="goodsMap">

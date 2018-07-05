@@ -418,8 +418,27 @@ public class DishController {
             res.put("data", tempdata);
             return res.toString();
         }
+    }
 
 
+    /*通过dishID查找菜式*/
+    @CrossOrigin
+    @RequestMapping(value = "/api/*/query/deletedDish", method = RequestMethod.GET)
+    @ResponseBody
+    public String queryDishbyID(@RequestParam(value = "dishID", defaultValue = "-1") int dishid,HttpServletRequest request, HttpServletResponse response) {
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("Content-Type:application/json");
+
+        JSONObject res = new JSONObject();
+        //
+        // System.out.println(dishid);
+        Goods good = menuService.getAllGoodsBydishID(dishid);
+        res.put("msg","OK");
+        JSONObject temp = new JSONObject();
+        temp.put("dishName", good.getName());
+        temp.put("dishPrice", good.getPrice());
+        res.put("data", temp);
+        return res.toString();
     }
 
 }

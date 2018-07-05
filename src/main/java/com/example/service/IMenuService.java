@@ -21,6 +21,8 @@ public interface IMenuService {
 
     public Goods getGoodsNotInCateById(int id);
 
+    public Goods getAllGoodsBydishID(int id);
+
     /**
      * 获取某类别下所有商品
      * @param category 商品类别名
